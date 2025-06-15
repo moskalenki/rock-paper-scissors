@@ -44,7 +44,7 @@ function renderRoundResult(containerName, choice){
         `
                 <button class="${choice}">
                     <img 
-                        src="./html/images/icon-${choice}.svg" 
+                        src="rock-paper-scissors/html/images/icon-${choice}.svg" 
                         alt="${choice}-icon" 
                     />
                 </button>
