@@ -75,6 +75,7 @@ body {
     color: var(--color-dark-text);
     font-size: 3.5rem;
     font-weight: 700;
+    text-align: center;
 }
 
 main {
@@ -84,19 +85,86 @@ main {
     flex: 1;
 }
 
-.bg {
+.bg  {
     position: relative;
 }
 
-#paper, #rock, #scissors {
+.round-result {
+    display: flex;
+}
+
+.player-result-container,
+.computer-result-container {
+    display: inline-block;
+    scale: 1.4;
+    margin: 0 6rem;
+    color: var(--white);
+}
+
+.player-result-container {
+    order: 1;
+}
+
+.result-container {
+    order: 2;
+}
+
+.computer-result-container {
+    order: 3;
+}
+
+.player-result-container p,
+.computer-result-container p{
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+
+.player-result-container button,
+.computer-result-container button {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-message {
+    color: var(--white);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.play-again-btn {
+    background: var(--white);
+    border: none;
+    padding: 0.75rem 3rem;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.paper, .rock, .scissors {
     position: absolute;
     border-radius: 50%;
     cursor: pointer;
     border: none;
-    padding: 2.5rem;
+    padding: 3rem;
 }
 
-#paper::before, #rock::before, #scissors::before {
+
+.paper::before, .rock::before, .scissors::before {
     content: "";
     background: var(--white);
     border-radius: 50%;
@@ -108,28 +176,114 @@ main {
     z-index: 0;
 }
 
-#paper img, #rock img, #scissors img {
+.paper img, .rock img, .scissors img {
     position: relative;
     z-index: 1;
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 55px;
 }
 
-#paper {
+.paper {
     background: linear-gradient(to bottom, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
     top: -15%;
     left: -15%;
+    border-bottom: inset 8px hsl(230, 89%, 55%);
+    border-left: inset 6px hsl(230, 89%, 71%) ;
 }
 
-#scissors {
+.scissors {
     background: linear-gradient(to bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
     top: -15%;
     right: -15%;
+    border-bottom: inset 8px hsl(40, 84%, 43%);
+    border-left: inset 8px hsl(40, 244%, 61%);
+    z-index: 634;
 }
 
-#rock {
+
+.rock {
     background: linear-gradient(to bottom, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
     bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    left: 25%;
+    border-bottom: inset 8px hsl(349, 70%, 46%);
+    border-left: inset 6px hsl(349, 70%, 61%);
+}
+
+.hidden {
+    display: none;
+}
+
+.round-result-wrapper {
+
+}
+
+.round-result {
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .score-board {
+        width: 90%;
+    }
+
+
+    main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .player-result-container,
+    .computer-result-container {
+        scale: 1;
+        color: var(--white);
+
+    }
+
+    .paper, .rock, .scissors {
+        position: absolute;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+        padding: 2.5rem;
+    }
+    .round-result-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .round-result {
+        display: flex;
+    }
+
+    .player-result-container p,
+    .computer-result-container p{
+        order: 1;
+        margin-top: 1.5rem;
+    }
+
+    .player-result-container,
+    .computer-result-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .player-result-container {
+        order: 1;
+    }
+
+    .result-container {
+        width: 100%;
+        order: 3;
+    }
+
+    .computer-result-container {
+        order: 2;
+    }
+
+    .round-result-wrapper {
+
+    }
 }
